@@ -20,47 +20,77 @@ function getHumanChoice(){
 }
 
 
-
-const humanSelection = getHumanChoice();
-
-const computerSelection = getComputerChoice();
-
 function playGame(){
-    
+
     let humanScore = 0
 
     let computerScore = 0 
     
     function playRound(humanChoice, computerChoice){
      if (humanChoice === "rock" && computerChoice === "rock" ){
-        return "rock vs rock. It's a tie."
+        alert("rock vs rock. It's a tie.")
      } else if ( humanChoice === "rock" && computerChoice === "paper"){
         computerScore ++
-        return "rock vs paper. You lose."   
+        alert("rock vs paper. You lose.")   
      } else if (humanChoice === "rock" && computerChoice === "scissors"){
         humanScore++
-        return "rock vs scissors. You win."
+        alert("rock vs scissors. You win.")
     } else if (humanChoice === "scissors" && computerChoice === "rock") {
         computerScore++
-        return "scissors vs rock. You lose."
+        alert("scissors vs rock. You lose.")
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++
-        return "scissors vs paper. You win."
+        alert("scissors vs paper. You win.")
     } else if (humanChoice === "scissors" && computerChoice === "scissors") {
-        return "scissors vs scissors. It's a tie."
+        alert("scissors vs scissors. It's a tie.")
     } else if (humanChoice === "paper" && computerChoice === "paper") {
-        return "paper vs paper. It's a tie."
+        alert("paper vs paper. It's a tie.")
     } else if (humanChoice === "paper" && computerChoice === "rock") {
         humanScore++
-        return "paper vs rock. You win."
+        alert("paper vs rock. You win.")
     } else if (humanChoice === "paper" && computerChoice === "scissors") {
         computerScore++
-        return " paper vs scissors. You lose."
-    } else return "You might have made an error. Please try again. "
+        alert(" paper vs scissors. You lose.")
+    } else  alert("You might have made an error. Please try again. ")
     
     }
     
+    function showScore(){
+        console.log("human score:",humanScore, "computer score:", computerScore);
+    }
 
+    function declareWinner(){
+        if(humanScore > computerScore){
+            console.log( "Congrats! You win!")
+        } else if ( humanScore < computerScore) {
+            console.log("You lost! That sucks!")
+        } else {
+            console.log("Looks like it's a tie.")
+        }
+    }
 
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
 
+    showScore()
+
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
+
+    showScore()
+
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
+
+    showScore()
+
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
+
+    showScore()
+
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
+
+    showScore()
+
+    declareWinner();
+    
 }
+
+playGame();
