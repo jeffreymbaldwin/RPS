@@ -69,28 +69,9 @@ function playGame(){
         }
     }
 
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-
-    showScore()
-
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-
-    showScore()
-
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-
-    showScore()
-
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-
-    showScore()
-
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-
-    showScore()
-
-    declareWinner();
     
 }
+
+
 
 playGame();
