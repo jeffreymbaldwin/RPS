@@ -21,37 +21,25 @@ function playGame(){
 
     let computerScore = 0 
 
-    const resultsDiv = document.createElement("div");
-    document.body.appendChild(resultsDiv);
-
-
-    
+   
     function playRound(humanChoice, computerChoice){
-     if (humanChoice === "rock" && computerChoice === "rock" ){
-        alert("rock vs rock. It's a tie.")
-     } else if ( humanChoice === "rock" && computerChoice === "paper"){
-        computerScore ++
-        alert("rock vs paper. You lose.")   
-     } else if (humanChoice === "rock" && computerChoice === "scissors"){
-        humanScore++
-        alert("rock vs scissors. You win.")
-    } else if (humanChoice === "scissors" && computerChoice === "rock") {
-        computerScore++
-        alert("scissors vs rock. You lose.")
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        humanScore++
-        alert("scissors vs paper. You win.")
-    } else if (humanChoice === "scissors" && computerChoice === "scissors") {
-        alert("scissors vs scissors. It's a tie.")
-    } else if (humanChoice === "paper" && computerChoice === "paper") {
-        alert("paper vs paper. It's a tie.")
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-        humanScore++
-        alert("paper vs rock. You win.")
-    } else if (humanChoice === "paper" && computerChoice === "scissors") {
-        computerScore++
-        alert(" paper vs scissors. You lose.")
-    } else  alert("You might have made an error. Please try again. ")
+        let resultText = "";
+
+        if (humanChoice === computerChoice) {
+            resultText = `${humanChoice} vs ${computerChoice}. It's a tie.`;
+        } else if (
+            (humanChoice === "rock" && computerChoice === "scissors") ||
+            (humanChoice === "paper" && computerChoice === "rock" ) ||
+            (humanChoice === "scissors" && computerChoice === "paper")
+        ) {
+            humanScore++;
+            resultText = `Your ${humanChoice} beats ${computerChoice}! You win!`;
+        } else { 
+            computerScore++;
+            resultText = `Your ${humanChoice} loses to ${computerChoice}! Too bad!`;
+        }
+
+        document.querySelector("#results").textContent = resultText;
     
     }
     
