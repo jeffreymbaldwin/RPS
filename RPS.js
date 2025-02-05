@@ -17,9 +17,9 @@ function getComputerChoice() {
 
 function playGame(){
 
-    let humanScore = 0
+    let humanScore = 0;
 
-    let computerScore = 0 
+    let computerScore = 0;
 
    
     function playRound(humanChoice, computerChoice){
@@ -43,19 +43,23 @@ function playGame(){
     
     }
     
-    function showScore(){
-        console.log("human score:",humanScore, "computer score:", computerScore);
-    }
 
-    function declareWinner(){
-        if(humanScore > computerScore){
-            console.log( "Congrats! You win!")
-        } else if ( humanScore < computerScore) {
-            console.log("You lost! That sucks!")
-        } else {
-            console.log("Looks like it's a tie.")
+function updateDisplay(){
+    document.querySelector("#score").textContent =
+        `Human Score: ${humanScore} | Computer Score: ${computerScore}`;
+        if (humanScore === 5) {
+            let finalMessage = `${humanScore} > ${computerScore}. Congrats! You win!`
+            alert(finalMessage);   
+            humanScore = 0;
+            computerScore = 0;         
+        } else if (computerScore === 5) {
+            let finalMessage = `${humanScore} < ${computerScore}. Oh no! You lost!`
+            alert(finalMessage);
+            humanScore = 0;
+            computerScore = 0;
         }
-    }
+}
+    
 
     
     
@@ -66,14 +70,17 @@ function playGame(){
     
     rockButton.addEventListener("click",() => {
         playRound("rock", getComputerChoice());
+        updateDisplay();
     });
 
     paperButton.addEventListener("click", () => {
         playRound("paper", getComputerChoice());
+        updateDisplay();
     });
 
     scissorsButton.addEventListener("click", ()=> {
         playRound("scissors", getComputerChoice());
+        updateDisplay();
     });
 
     
@@ -82,7 +89,6 @@ function playGame(){
 
 
 
-    declareWinner();
     
 }
 
