@@ -15,16 +15,16 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice(){
-   return prompt("Please choose Rock, Paper or Scissors").toLowerCase()
-}
-
-
 function playGame(){
 
     let humanScore = 0
 
     let computerScore = 0 
+
+    const resultsDiv = document.createElement("div");
+    document.body.appendChild(resultsDiv);
+
+
     
     function playRound(humanChoice, computerChoice){
      if (humanChoice === "rock" && computerChoice === "rock" ){
@@ -70,8 +70,32 @@ function playGame(){
     }
 
     
+    
+    const rockButton = document.querySelector("#rock");
+    const paperButton = document.querySelector("#paper");
+    const scissorsButton = document.querySelector("#scissors")
+
+    
+    rockButton.addEventListener("click",() => {
+        playRound("rock", getComputerChoice());
+    });
+
+    paperButton.addEventListener("click", () => {
+        playRound("paper", getComputerChoice());
+    });
+
+    scissorsButton.addEventListener("click", ()=> {
+        playRound("scissors", getComputerChoice());
+    });
+
+    
+
+
+
+
+
+    declareWinner();
+    
 }
 
-
-
-playGame();
+playGame()
